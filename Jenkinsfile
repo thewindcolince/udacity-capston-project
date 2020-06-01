@@ -4,13 +4,11 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-           
-            // Run Maven on a Unix agent.
             sh "mvn  clean install package"
-
-            
          }
-         steps { 
+       }
+
+      stage('SendOverSsh') { 
              
             sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '',
          	execCommand: 'ansible-playbook /home/ansible/capstone/kubedeploy.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false,
@@ -18,10 +16,7 @@ pipeline {
        	    removePrefix: 'webapp/target/', sourceFiles: 'webapp/target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
 
             }
-
-        
-         }
       }
-   }
+  }
 
 
