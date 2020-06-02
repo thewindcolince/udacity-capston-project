@@ -30,6 +30,30 @@ pipeline {
              }
    
           }
+   stage('kubernetes deployment') {
+	steps {
+
+              sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '',
+              execCommand: 'ansible-playbook /home/ansible/capstone/udacity-kube-deploy.yml', flatten: false, makeEmptyDirs: false,
+              noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '',remoteDirectorySDF: false, removePrefix: '',
+              sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])       
+    
+         }
+	
+      }
+   stage('kubernetes service deployment') {
+      steps {
+       
+              sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '',
+              execCommand: 'ansible-playbook /home/ansible/capstone/udacity-kube-service.yml', flatten: false, makeEmptyDirs: false,
+              noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '',remoteDirectorySDF: false, removePrefix: '',
+              sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])          
+  
+    }
+
+
+    }
+
 
       }
   }
