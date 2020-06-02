@@ -1,0 +1,14 @@
+piVersion: v1
+kind: Service
+metadata:
+  name: colince-service
+  labels:
+    app: colince-devops-project
+spec:
+  selector:
+    app: colince-devops-project
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31200

@@ -1,0 +1,20 @@
+---
+- hosts: kubernete
+  become: true
+
+  tasks:
+  - name: create docker image using war file
+    command: docker build -t udacity-devops-image:latest .
+    args:
+      chdir: /opt/k8s/webapp
+
+  - name: create tag to image
+    command: docker tag udacity-devops-image colince/udacity-capstone
+
+  - name: push image on to dockerhub
+    command: docker push colince/udacity-capstone
+
+  - name: remove docker images form ansible server
+    command: docker rmi udacity-devops-image
+    ignore_errors: yes
+

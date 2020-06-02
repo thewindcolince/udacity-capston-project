@@ -1,0 +1,11 @@
+---
+
+- hosts: kubernete
+  become: true
+  tasks: 
+
+  - name: send file to kubernetes master server
+    copy:
+      src: webapp.war
+      dest: /opt/k8s/webapp
+
