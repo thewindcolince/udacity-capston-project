@@ -23,7 +23,7 @@ pipeline {
         steps {
                 
               sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '',
-              execCommand: 'ansible-playbook /home/ansible/capstone/create-docker-image.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false,
+              execCommand: 'ansible-playbook /home/ansible/capstone/create-docker-image.yml', execTimeout: 130000, flatten: false, makeEmptyDirs: false,
               noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '',remoteDirectorySDF: false, removePrefix: '',
               sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             
