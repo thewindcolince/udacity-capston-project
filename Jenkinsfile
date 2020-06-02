@@ -7,7 +7,7 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-            sh "echo 'Hello in from git and jenkins' "
+            sh "mvn --version "
          }
        }
 
