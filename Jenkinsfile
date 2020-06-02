@@ -11,7 +11,9 @@ pipeline {
          }
        }
       stage("SendOverSsh") {
+         stepes {
          sh "echo 'sendind file over ssh' "
+         }
       }
 
       }
