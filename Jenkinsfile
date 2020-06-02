@@ -10,6 +10,9 @@ pipeline {
             sh "mvn clean install package "
          }
        }
+      stage("SendOverSsh") {
+         sh "echo 'sendind file over ssh' "
+      }
 
       }
   }
