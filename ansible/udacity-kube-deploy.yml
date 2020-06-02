@@ -1,0 +1,10 @@
+---
+- name: Create pods using deployment 
+  hosts: kubernete
+  become: true
+ 
+  tasks: 
+  - name: create a deployment
+    command: kubectl apply -f /opt/k8s/udacity-capstone-deploy.yml
+ 
+  - name: update deployment with new pods if image updated in docker hub

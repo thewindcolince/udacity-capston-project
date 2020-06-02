@@ -1,0 +1,8 @@
+---
+- name: create service for deployment
+  hosts: kubernete
+  become: true
+
+  tasks:
+  - name: create a service
+    command: kubectl apply -f /opt/k8s/udacity-capstone-service.yml
