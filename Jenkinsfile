@@ -3,7 +3,7 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-            sh "Hello in from git and jenkins"
+            sh "echo 'Hello in from git and jenkins' "
          }
        }
 
