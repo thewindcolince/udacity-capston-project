@@ -22,7 +22,8 @@ as you can see in the architecture, I have a simple maven project that will be p
 
      		                                       	Requirement 
 
-to successful deploy this project, we need a git install in our local computer, github account where to create our repository, Jenkins server ( I use EC2 for that) where to configure our CI/CD pipeline, ansible server where to create and execute our playbooks, kubernetes master server where to deploy our app in cluster.
+to successful deploy this project, we need a git install in our local computer, github account where to create our repository, Jenkins server ( I use EC2 for that) where to configure our CI/CD pipeline, ansible server where to create 
+and execute our playbooks, kubernetes master server where to deploy our app in cluster.
 
                                                    Setup 
 
@@ -32,11 +33,13 @@ to successful deploy this project, we need a git install in our local computer, 
 
 2- Jenkins server
 
-   	In Jenkins server, I first install java( the newest version) and maven8, after that I configure ansible ssh server connexion to allow jenkins connect to my ansible server, I also install some usefull plugin( PublishSsh, blue ocean, maven invoker, git plugin, etc), I then create a pipeline and sync it with my project repository in my github account. all the rest to do I did it in my Jenkinsfile
+   In Jenkins server, I first install java( the newest version) and maven8, after that I configure ansible ssh server connexion to allow jenkins connect to my ansible server, I also install some usefull plugin( PublishSsh, blue ocean, maven invoker, git plugin, etc), I then create a pipeline and sync it with my project repository in my github account. all the rest to do I did it in my Jenkinsfile
 
 3- ansible server 
 	
-	In my ansible server, I install ansible and configure it to passwordless communicate with  kubernetes master server. I also create all my playbooks in the ansible server to automate configuration in kubernetes. 
+	In my ansible server, I install ansible and configure it to passwordless communicate with
+	kubernetes master server. I also create all my playbooks in the ansible server to automate 
+	configuration in kubernetes. 
 
 4- Kubernetes server
 
