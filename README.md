@@ -44,6 +44,7 @@ and execute our playbooks, kubernetes master server where to deploy our app in c
 4- Kubernetes server
 
 	In my kubernetes server I install python so ansible can act well. I install kops and kubectl. 
+	I then create my kubernetes deploymet file and kubernetes services file to deploy pod and service.
 
 
  
